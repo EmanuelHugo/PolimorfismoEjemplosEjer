@@ -1,0 +1,7 @@
+@startuml Calculadora
+    class Calculadora{
+        +public int sumar(int a, int b): int
+        +public int sumar(int, int, int): int
+        +public double sumar(double, double): double
+    }
+@enduml

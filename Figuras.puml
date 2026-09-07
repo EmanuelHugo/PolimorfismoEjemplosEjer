@@ -1,0 +1,18 @@
+@startuml Figura
+    class Figura{
+        +void dibujarFigura(): void
+    }
+
+    class Circulo{
+        +void dibujarFigura(): void
+    }
+    class Triangulo{
+        +void dibujarFigura(): void
+    }
+    class Cuadrado{
+        +void dibujarFigura(): void
+    }
+    Figura <|-- Circulo
+    Figura <|-- Triangulo
+    Figura <|-- Cuadrado
+@enduml

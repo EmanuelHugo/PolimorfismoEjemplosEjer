@@ -1,0 +1,27 @@
+@startuml class_final
+class Cliente{
+     #nombre : String
+     #dirección : String
+
+     +registrarDatos(): void
+     +obtenerNombre(): String
+}
+class ClientePreferencial {
+    -descuentoPreferencial: double
+    +AplicarDescuento(monto): double
+}
+class Reserva{
+    -idReserva : int
+    -estado : String
+
+    +calcularPrevio(): double
+    +confirmaReserva(): void
+    +cancelarReserva(): void
+}
+
+Cliente <|-- ClientePreferencial
+Cliente "1" --o "*" Reserva : realiza
+
+
+
+@enduml

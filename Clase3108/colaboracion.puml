@@ -1,0 +1,19 @@
+@startuml colaboración
+skinparam RoundCorner 0
+skinparam shadowing false
+' Definición de objetos 
+object Taquilla
+object Cliente
+object Agenda
+object Reserva
+' Posicionamiento estructural mediante enlaces ocultos o fijos
+Taquilla -down-> Cliente : 1: Solicitud\n[3b = ERROR] rechazado \n7: confirmación
+Taquilla -down-> Agenda : 2 consultae\n[3a =mPK] 4: reservar
+Agenda -up->  Taquilla : 3: Disponible
+' Conexiones de la parte inferior lateral
+Agenda -right-> Reserva : 5: Crear
+Reserva -up-> Taquilla : 6: Confirmado
+note right of Taquilla
+    Coordina interacciones
+end note 
+@enduml

@@ -1,0 +1,55 @@
+@startuml Integrador
+skinparam classAttributeIconSize 0
+
+package "ContadorInstancias" {
+
+    abstract class Empleado {
+        # nombre : String
+        # cedula : int
+        # sueldoBase : double
+        # id : int
+        {static} - totalEmpleados : int
+        {static} + proximoid : int = 1001
+
+        + Empleado(nombre : String, cedula : int, sueldoBase : double)
+        {abstract} + calcularSueldo() : double
+        {abstract} + obtenerDetalles() : void
+        {static} + obtenerTotalEmpleados() : int
+        {static} + mostrarEstadisticas() : void
+    }
+
+    class Gerente extends Empleado {
+        - bonificacion : int = 25
+
+        + Gerente(nombre : String, cedula : int, sueldoBase : double)
+        + calcularSueldo() : double
+        + obtenerDetalles() : void
+    }
+
+    class Supervisor extends Empleado {
+        - bonificacion : int = 15
+
+        + Supervisor(nombre : String, cedula : int, sueldoBase : double)
+        + calcularSueldo() : double
+        + obtenerDetalles() : void
+    }
+
+    class Obrero extends Empleado {
+        - Bonificacion : int = 0
+
+        + Obrero(nombre : String, cedula : int, sueldoBase : double)
+        + calcularSueldo() : double
+        + obtenerDetalles() : void
+    }
+
+    class MainEmpleado {
+        + main(args : String[]) : void
+    }
+}
+
+MainEmpleado ..> Empleado : crea y usa
+MainEmpleado ..> Gerente : crea
+MainEmpleado ..> Supervisor : crea
+MainEmpleado ..> Obrero : crea
+
+@enduml

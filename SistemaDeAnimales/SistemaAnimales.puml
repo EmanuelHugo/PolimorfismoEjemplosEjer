@@ -1,0 +1,66 @@
+@startuml SistemaAnimales
+title Sistema de animales
+
+package SistemaDeAnimales {
+    class Animal {
+        # nombre : String
+        # energia : int
+
+        + Animal(nombre : String)
+        + hacerSonido() : void
+        + Moverse() : void
+        + Comer() : void
+    }
+
+    class Gato {
+        - color : String
+
+        + Gato(nombre : String, color : String)
+        + hacerSonido() : void
+        + Rasguniar() : void
+        + Moverse() : void
+    }
+
+    class Perro {
+        - raza : String
+
+        + Perro(nombre : String, raza : String)
+        + hacerSonido() : void
+        + traerObjeto() : void
+        + Moverse() : void
+    }
+
+    class Pajaro {
+        - envergaduraAlas : double
+
+        + Pajaro(nombre : String, envergaduraAlas : double)
+        + hacerSonido() : void
+        + volar() : void
+        + Moverse() : void
+    }
+
+    class Vaca {
+        - patas : int
+
+        + Vaca(nombre : String, patas : int)
+        + hacerSonido() : void
+        + traerObjeto() : void
+        + Moverse() : void
+    }
+
+    class main {
+        + main(args : String[]) : void
+    }
+
+    Animal <|-- Gato
+    Animal <|-- Perro
+    Animal <|-- Pajaro
+    Animal <|-- Vaca
+
+    main ..> Animal : usa
+    main ..> Gato : crea
+    main ..> Perro : crea
+    main ..> Pajaro : crea
+    main ..> Vaca : crea
+}
+@enduml
